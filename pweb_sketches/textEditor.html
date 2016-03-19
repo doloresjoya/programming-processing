@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300' rel='stylesheet' type='text/css'>
+    <script src="processing.min.js"></script>
+    <script type="text/processing" data-processing-target="processing-canvas">
+    void setup() {
+  size(640, 360);
+  background(51);
+  noStroke();
+  noLoop();
+}
+
+void draw() {
+  drawTarget(width*0.25, height*0.4, 200, 4);
+  drawTarget(width*0.5, height*0.5, 300, 10);
+  drawTarget(width*0.75, height*0.3, 120, 6);
+}
+
+void drawTarget(float xloc, float yloc, int size, int num) {
+  float grayvalues = 255/num;
+  float steps = size/num;
+  for (int i = 0; i < num; i++) {
+    fill(i*grayvalues);
+    ellipse(xloc, yloc, size - i*steps, size - i*steps);
+  }
+}
+    </script>
+    <style>
+        h4 {}
+        body {background-color: #cc7b0c; font-family: 'Roboto Condensed', sans-serif;}
+        
+    </style>
+</head>
+
+<body background-color="#cc7b0c">
+    <h2>Processing Sketch using the mouse previous and current position as inputs</h2>
+    <canvas id="processing-canvas"></canvas>
+</body>
+</html>

@@ -1,0 +1,9 @@
+size(600,600);
+fill(100);
+ellipse(0,50,150,150);
+pushMatrix();
+translate(200,0);
+ellipse(0,50,150,150);
+translate(20,0);
+ellipse(200,50,150,150);
+popMatrix();

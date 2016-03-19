@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300' rel='stylesheet' type='text/css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.16/processing.min.js"></script>
+    <script type="text/processing" data-processing-target="processing-canvas">
+    int num = 50;
+    int[] x = new int[num];
+    int[] y = new int[num];
+    int indexPosition = 0;
+
+    void setup(){
+      size(400, 400);
+      noStroke();
+      smooth();
+      fill(255, 102);
+    }
+
+    void draw(){
+      background(0);
+      x[indexPosition] = mouseX;
+      y[indexPosition] = mouseY;
+      indexPosition = (indexPosition + 1) % num;
+      for(int i = 0; i < num; i++){
+        int pos = (indexPosition + i) % num;
+        int radius = (int)((num-i)/ 2);
+        ellipse(x[pos], y[pos], radius, radius);
+      }
+    }
+    
+    </script>
+    <style>
+        h4 {}
+        body {background-color: #ffffff; font-family: 'Roboto Condensed', sans-serif;}
+        
+    </style>
+</head>
+
+<body background-color="#ffffff">
+    <canvas id="processing-canvas"></canvas>
+</body>
+</html>
+
+<!--Alternate version to the above code. 
+/*
+    int num = 50;
+    int[] x = new int[num];
+    int[] y = new int[num];
+
+    void setup(){
+      size(1000, 1000);
+      noStroke();
+      smooth();
+      fill(255, 102);
+    }
+
+    void draw(){
+      background(70, 188, 140);
+      for(int i = num-1; i > 0; i--){
+        x[i] = x[i-1];
+        y[i] = y[i-1];
+      }
+      x[0] = mouseX;
+      y[0] = mouseY;
+      for(int i = 0; i < num; i++){
+        ellipse(x[i], y[i], i/2.0, i/2.0);
+      }
+    }
+    */
+//>
